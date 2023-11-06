@@ -1,0 +1,136 @@
+{
+  "$schema": "https://docs.oasis-open.org/csaf/csaf/v2.0/csaf_json_schema.json",
+  "document": {
+    "csaf_version": "2.0",
+    "category": "csaf_vex",
+    "title": "CVE-0000-0000",
+    "publisher": {
+      "category": "vendor",
+      "name": "Red Hat",
+      "namespace": "https://www.redhat.com"
+    },
+    "tracking": {
+      "id": "cve-0000-0000",
+      "initial_release_date": "2023-01-01T10:00:00.000Z",
+      "current_release_date": "2023-01-02T10:00:00.000Z",
+      "revision_history": [
+        {
+          "number": "1",
+          "date": "2023-01-01T10:00:00.000Z",
+          "summary": "Initial release"
+        },
+        {
+          "number": "2",
+          "date": "2023-01-02T10:00:00.000Z",
+          "summary": "Update with assessments"
+        }
+      ],
+      "status": "interim",
+      "version": "2"
+    }
+  },
+  "product_tree": {
+    "branches": [
+      {
+        "name": "Vendor",
+        "category": "vendor",
+        "branches": [
+          {
+            "category": "product_name",
+            "name": "Distribution 1",
+            "product": {
+              "name": "Distribution 1",
+              "product_id": "dist-1",
+              "product_identification_helper": {
+                "cpe": "cpe:/o:vendor:dist:1"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "name": "libfancy 0.1.0 releases",
+        "category": "product_version_range",
+        "branches": [
+          {
+            "category": "product_version",
+            "name": "libfancy 0.1.0-1",
+            "product": {
+              "product_id": "libfancy-0.1.0/1",
+              "name": "libfancy 0.1.0-1",
+              "product_identification_helper": {
+                "purl": "pkg:mock/libfancy@0.1.0-1"
+              }
+            }
+          },
+          {
+            "category": "product_version",
+            "name": "libfancy 0.1.0-2",
+            "product": {
+              "product_id": "libfancy-0.1.0/2",
+              "name": "libfancy 0.1.0-2",
+              "product_identification_helper": {
+                "purl": "pkg:mock/libfancy@0.1.0-2"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "relationships": [
+      {
+        "category": "optional_component_of",
+        "product_reference": "libfancy-0.1.0",
+        "relates_to_product_reference": "dist-1",
+        "full_product_name": {
+          "product_id": "dist-1/libfancy-0.1.0",
+          "name": "any libfancy 0.1.0 of Distribution 1"
+        }
+      },
+      {
+        "category": "optional_component_of",
+        "product_reference": "libfancy-0.1.0/1",
+        "relates_to_product_reference": "dist-1",
+        "full_product_name": {
+          "product_id": "dist-1/libfancy-0.1.0/1",
+          "name": "libfancy 0.1.0-1 of Distribution 1"
+        }
+      },
+      {
+        "category": "optional_component_of",
+        "product_reference": "libfancy-0.1.0/2",
+        "relates_to_product_reference": "dist-1",
+        "full_product_name": {
+          "product_id": "dist-1/libfancy-0.1.0/2",
+          "name": "libfancy 0.1.0-2 of Distribution 1"
+        }
+      }
+    ]
+  },
+  "vulnerabilities": [
+    {
+      "cve": "CVE-0000-0000",
+      "flags": [
+        {
+          "product_ids": ["dist-1/libfancy-0.1.0/1"],
+          "label": "vulnerable_code_not_present"
+        }
+      ],
+      "product_status": {
+        "known_not_affected": [
+            "dist-1/libfancy-0.1.0/1"
+        ],
+        "known_affected": [
+          "dist-1/libfancy-0.1.0/2"
+        ]
+      },
+      "remediations": [
+        {
+          "category": "workaround",
+          "product_ids": ["dist-1/libfancy-0.1.0/2"],
+          "details": "Try turning it off and on again"
+        }
+      ]
+    }
+  ]
+}
